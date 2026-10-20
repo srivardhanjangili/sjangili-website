@@ -1,0 +1,68 @@
+{{ define "main" }}
+{{ partial "page-head.html" . }}
+{{- $papers := hugo.Data.papers }}
+<div class="wrap page-body">
+  {{- with .Content }}<div class="prose">{{ . }}</div>{{ end }}
+
+  {{- range where $papers "job_market_paper" true }}
+  <article class="jmp">
+    <span class="badge">Job market paper</span>
+    <h3>{{ .title }}</h3>
+    {{ partial "authors.html" . }}
+    {{ with .abstract }}<p>{{ . }}</p>{{ end }}
+    {{ partial "paper-links.html" . }}
+  </article>
+  {{- end }}
+
+  {{- $pubs := where (where $papers "status" "in" (slice "published" "accepted")) "job_market_paper" "!=" true }}
+  {{- with $pubs }}
+  <section class="section" aria-labelledby="pubs-h">
+    <h2 id="pubs-h">Publications</h2>
+    <ul class="rows">
+      {{- range . }}
+      <li>
+        <div>
+          <p class="row-title">{{ with .link }}<a href="{{ . }}">{{ end }}{{ .title }}{{ with .link }}</a>{{ end }}</p>
+          {{ partial "authors.html" . }}
+          {{ with .abstract }}<details><summary>Abstract</summary><p>{{ . }}</p></details>{{ end }}
+          {{ partial "paper-links.html" . }}
+        </div>
+        <div class="aside"><span class="badge {{ .status }}">{{ .status }}</span><br><em>{{ .venue }}</em>{{ with .year }}, {{ . }}{{ end }}</div>
+      </li>
+      {{- end }}
+    </ul>
+  </section>
+  {{- end }}
+
+  {{- $wps := where (where $papers "status" "not in" (slice "published" "accepted")) "job_market_paper" "!=" true }}
+  {{- with $wps }}
+  <section class="section" aria-labelledby="wps-h">
+    <h2 id="wps-h">Working papers</h2>
+    <ul class="rows">
+      {{- range . }}
+      <li>
+        <div>
+          <p class="row-title">{{ .title }}</p>
+          {{ partial "authors.html" . }}
+          {{ with .abstract }}<details><summary>Abstract</summary><p>{{ . }}</p></details>{{ end }}
+          {{ partial "paper-links.html" . }}
+        </div>
+        <div class="aside"><span class="badge">{{ .status }}</span>{{ with .venue }}<br>{{ . }}{{ end }}</div>
+      </li>
+      {{- end }}
+    </ul>
+  </section>
+  {{- end }}
+
+  {{- with hugo.Data.talks }}
+  <section class="section" aria-labelledby="talks-h">
+    <h2 id="talks-h">Conference presentations</h2>
+    <ul class="rows">
+      {{- range . }}
+      <li><div><p class="row-title">{{ .title }}</p><p class="row-sub">{{ .venue }}</p></div><div class="aside">{{ .date }}</div></li>
+      {{- end }}
+    </ul>
+  </section>
+  {{- end }}
+</div>
+{{ end }}

@@ -1,0 +1,5 @@
+# A plain-language summary for AI assistants is at /sjangili-website/llms.txt
+User-agent: *
+Allow: /
+
+Sitemap: https://srivardhanjangili.github.io/sjangili-website/sitemap.xml

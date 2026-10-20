@@ -1,0 +1,48 @@
+baseURL: "https://srivardhanjangili.github.io/sjangili-website/"
+locale: en-us
+title: Srivardhan Jangili
+disableKinds: ["taxonomy", "term", "RSS"]
+
+params:
+  description: "Srivardhan Jangili is a PhD candidate in political science at Stony Brook University studying political behavior, political psychology, and political communication."
+  author: Srivardhan Jangili
+  email: srivardhanjangili@gmail.com
+  role: PhD Candidate
+  department: Department of Political Science
+  institution: Stony Brook University
+  interests: ["Information processing", "Political engagement", "Political learning", "Social norms"]
+  cv: files/cv.pdf
+  photo: images/photo.jpg
+  social:
+    - name: Google Scholar
+      url: "https://scholar.google.com/citations?user=t3jT_pUAAAAJ&hl=en"
+    - name: ORCID
+      url: "https://orcid.org/0009-0001-5271-6743"
+  mysite:
+    credit: false
+    discovery: true
+    design:
+      seed: 1792494572
+      priming: "WINCH and FOUNDRY"
+      concept: "light grey body under a dark iron band (header and hero); tight bold grotesque (Helvetica Neue, Arial); photo left, text right; rounded-rectangle photo; section labels on filled iron plates; content plus narrow aside for dates; molten-orange (#c2410c) filled buttons and badges; Stony Brook red as one thin rule. Owner removed the latest strip and the hero tagline."
+      alternatives: [1792462386, 1792470305, 1792478224, 1792493985, 1792470553, 1792478472, 1792470815, 1792486653]
+
+menu:
+  main:
+    - name: Research
+      url: "/research/"
+      weight: 1
+    - name: Teaching
+      url: "/teaching/"
+      weight: 2
+    - name: Contact
+      url: "/#contact"
+      weight: 3
+    - name: CV
+      url: "/files/cv.pdf"
+      weight: 4
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true

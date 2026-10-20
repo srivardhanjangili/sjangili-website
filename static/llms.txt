@@ -1,0 +1,9 @@
+# Srivardhan Jangili
+
+> PhD candidate in the Department of Political Science at Stony Brook University (advisor: Eric Groenendyk). Studies political behavior, political psychology, and political communication: information processing, political engagement, political learning, and social norms.
+
+- [Home](https://srivardhanjangili.github.io/sjangili-website/)
+- [CV (PDF)](https://srivardhanjangili.github.io/sjangili-website/files/cv.pdf)
+- [Research and papers](https://srivardhanjangili.github.io/sjangili-website/research/)
+- [Teaching](https://srivardhanjangili.github.io/sjangili-website/teaching/)
+- [Contact](https://srivardhanjangili.github.io/sjangili-website/#contact)

@@ -1,0 +1,45 @@
+{{ define "main" }}
+{{- $p := site.Params }}
+<section class="hero" aria-label="Introduction">
+  <div class="wrap hero-grid">
+    {{- with resources.Get $p.photo }}
+    {{- $img := .Fill "384x384 Center webp q82" }}
+    <figure class="portrait">
+      <img src="{{ $img.RelPermalink }}" width="{{ $img.Width }}" height="{{ $img.Height }}" alt="Portrait of {{ site.Title }}">
+    </figure>
+    {{- end }}
+    <div>
+      <h1>{{ site.Title }}</h1>
+      <p class="role">{{ $p.role }} &middot; {{ $p.department }} &middot; {{ $p.institution }}</p>
+      <div class="btns">
+        <a class="btn" href="{{ $p.cv | relURL }}">Curriculum vitae</a>
+        <a class="btn ghost" href="mailto:{{ $p.email }}">Email</a>
+        {{- range $p.social }}
+        <a class="btn ghost" href="{{ .url }}" rel="me">{{ .name }}</a>
+        {{- end }}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="section wrap" aria-labelledby="about-h">
+  <h2 id="about-h">About</h2>
+  <div class="prose">{{ .Content }}</div>
+</section>
+
+{{- with hugo.Data.awards }}
+<section id="awards" class="section wrap" aria-labelledby="awards-h">
+  <h2 id="awards-h">Awards &amp; Fellowships</h2>
+  <ul class="rows">
+    {{- range . }}
+    <li><div><p class="row-title">{{ .name }}</p></div><div class="aside">{{ .year }}</div></li>
+    {{- end }}
+  </ul>
+</section>
+{{- end }}
+
+<section id="contact" class="section wrap" aria-labelledby="contact-h">
+  <h2 id="contact-h">Contact</h2>
+  <p>{{ $p.department }}<br>{{ $p.institution }}<br><a href="mailto:{{ $p.email }}">{{ $p.email }}</a></p>
+</section>
+{{ end }}

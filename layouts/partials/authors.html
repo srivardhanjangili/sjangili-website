@@ -1,0 +1,7 @@
+{{- $others := slice }}
+{{- range .authors }}{{ if ne . site.Title }}{{ $others = $others | append . }}{{ end }}{{ end }}
+{{- if and (eq .status "published") (gt (len .authors) 1) }}
+<p class="row-sub">{{ range $i, $a := .authors }}{{ if $i }}, {{ end }}{{ if eq $a site.Title }}<strong>{{ $a }}</strong>{{ else }}{{ $a }}{{ end }}{{ end }}</p>
+{{- else if $others }}
+<p class="row-sub">with {{ delimit $others ", " " and " }}</p>
+{{- end }}

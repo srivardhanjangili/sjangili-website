@@ -1,0 +1,13 @@
+{{ define "main" }}
+{{ partial "page-head.html" . }}
+<div class="wrap page-body">
+  {{- with .Content }}<div class="prose">{{ . }}</div>{{ end }}
+  {{- with hugo.Data.teaching }}
+  <ul class="rows">
+    {{- range . }}
+    <li><div><p class="row-title">{{ .course }}</p><p class="row-sub">{{ with .role }}{{ . }}, {{ end }}{{ .institution }}</p></div><div class="aside">{{ .term }}</div></li>
+    {{- end }}
+  </ul>
+  {{- end }}
+</div>
+{{ end }}

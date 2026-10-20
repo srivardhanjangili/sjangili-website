@@ -1,0 +1,48 @@
+# Status vocabulary: published, accepted, revise and resubmit, under review,
+# working paper, work in progress. Set job_market_paper: true on at most one entry.
+
+- title: "Evolution by National Election? Partisanship, Voting Behavior, and Sentiments toward Culture War Groups"
+  authors: ["J. V. Kane", "Srivardhan Jangili", "V. Sgorlon", "J. Sandor"]
+  year: 2026
+  status: "published"
+  venue: "Politics, Groups, and Identities"
+  pdf: ""
+  link: "https://doi.org/10.1080/21565503.2026.2735230"
+  abstract: ""
+  job_market_paper: false
+
+- title: "It’s Still Incivility to Me: Civility Norms Inside and Outside of Politics"
+  authors: ["William Brown", "Srivardhan Jangili", "Eric Groenendyk"]
+  status: "working paper"
+  venue: ""
+  pdf: ""
+  link: ""
+  abstract: ""
+  job_market_paper: false
+
+- title: "Incumbency Complacency: Do Partisans Check Out of Politics After Winning?"
+  authors: ["Srivardhan Jangili"]
+  status: "working paper"
+  venue: ""
+  pdf: ""
+  link: ""
+  abstract: ""
+  job_market_paper: false
+
+- title: "Reevaluating Openness: Politically Motivated Reasoning and the Limits of Cognitive Flexibility"
+  authors: ["Srivardhan Jangili", "Brian Guay", "Michael Nick Stagnaro"]
+  status: "working paper"
+  venue: ""
+  pdf: ""
+  link: ""
+  abstract: ""
+  job_market_paper: false
+
+- title: "Punting on Politics: NFL Team Success and Political Engagement"
+  authors: ["Srivardhan Jangili", "Hillary Style"]
+  status: "working paper"
+  venue: ""
+  pdf: ""
+  link: ""
+  abstract: ""
+  job_market_paper: false

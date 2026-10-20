@@ -1,0 +1,6 @@
+{{- if or .pdf .link }}
+<p class="paper-links">
+  {{- with .pdf }}<a href="{{ . | relURL }}">PDF</a>{{ end }}
+  {{- with .link }}<a href="{{ . }}">{{ if hasPrefix . "https://doi.org/" }}DOI{{ else }}Link{{ end }}</a>{{ end }}
+</p>
+{{- end }}

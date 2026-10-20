@@ -1,0 +1,39 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{{- $desc := or .Description site.Params.description }}
+<title>{{ if .IsHome }}{{ site.Title }} | {{ site.Params.role }}, {{ site.Params.institution }}{{ else }}{{ .Title }} | {{ site.Title }}{{ end }}</title>
+<meta name="description" content="{{ $desc }}">
+<meta name="author" content="{{ site.Params.author }}">
+<link rel="canonical" href="{{ .Permalink }}">
+<meta property="og:title" content="{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }}{{ end }}">
+<meta property="og:description" content="{{ $desc }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:type" content="{{ if .IsHome }}profile{{ else }}article{{ end }}">
+{{- with resources.Get site.Params.photo }}{{ with .Fill "600x600 Center webp q80" }}
+<meta property="og:image" content="{{ .Permalink }}">
+{{- end }}{{ end }}
+{{- $css := resources.Get "css/style.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+<link rel="icon" href="{{ "favicon.ico" | relURL }}" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ "favicon-32x32.png" | relURL }}">
+<link rel="apple-touch-icon" href="{{ "apple-touch-icon.png" | relURL }}">
+{{- if site.Params.mysite.discovery }}
+<meta name="generator" content="Created using GaryKing.org/mysite">
+{{- if .IsHome }}
+<script type="application/ld+json">
+{{ dict
+  "@context" "https://schema.org"
+  "@type" "Person"
+  "name" site.Title
+  "jobTitle" site.Params.role
+  "email" (printf "mailto:%s" site.Params.email)
+  "url" site.BaseURL
+  "affiliation" (dict "@type" "CollegeOrUniversity" "name" site.Params.institution)
+  "alumniOf" (dict "@type" "CollegeOrUniversity" "name" "University of Nevada, Reno")
+  "knowsAbout" site.Params.interests
+  "sameAs" (slice "https://scholar.google.com/citations?user=t3jT_pUAAAAJ" "https://orcid.org/0009-0001-5271-6743")
+  "isBasedOn" "https://gking.harvard.edu/mysite"
+  | jsonify | safeJS }}
+</script>
+{{- end }}
+{{- end }}
